@@ -6,6 +6,6 @@ temp/
 tmp/*
 .env
 ormconfig.json
-!tmp/uploads/.gitkeep
+!tmp/uploads
 !tmp/image_test.jpg
 !tmp/test.txt
