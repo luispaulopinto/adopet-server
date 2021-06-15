@@ -40,6 +40,9 @@ const profilePath = {
                 city: {
                   type: 'string',
                 },
+                isOng: {
+                  type: 'boolean',
+                },
                 createdAt: {
                   type: 'string',
                   format: 'date-time',
@@ -55,6 +58,7 @@ const profilePath = {
                 phoneNumber: '00000000000',
                 uf: 'SP',
                 city: 'São Paulo',
+                isOng: false,
                 createdAt: '2012-03-10T22:10:32.992Z',
                 avatarURL: 'http://example.com/image.jpg',
               },
@@ -139,6 +143,9 @@ const profilePath = {
                 city: {
                   type: 'string',
                 },
+                isOng: {
+                  type: 'boolean',
+                },
                 updatedAt: {
                   type: 'string',
                   format: 'date-time',
@@ -153,6 +160,7 @@ const profilePath = {
                 email: 'new@user.com.br',
                 uf: 'SP',
                 city: 'São Paulo',
+                isOng: false,
                 updatedAt: '2012-03-10T22:10:32.992Z',
                 avatarURL: 'http://example.com/image.jpg',
               },

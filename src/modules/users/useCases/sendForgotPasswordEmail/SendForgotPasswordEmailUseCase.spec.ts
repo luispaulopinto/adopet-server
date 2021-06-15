@@ -25,6 +25,7 @@ describe('SendForgotPasswordEmail UseCase', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     await sendForgotPasswordEmail.execute({
@@ -49,6 +50,7 @@ describe('SendForgotPasswordEmail UseCase', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     await expect(

@@ -32,6 +32,7 @@ describe('CreateResetToken UseCase', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     const resetToken = await createResetTokenUseCase.execute(user.email);
@@ -46,6 +47,7 @@ describe('CreateResetToken UseCase', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     const refreshToken1 = await createResetTokenUseCase.execute(user.email);
@@ -71,6 +73,7 @@ describe('CreateResetToken UseCase', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     const resetToken = await createResetTokenUseCase.execute(user.email);

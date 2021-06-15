@@ -48,6 +48,11 @@ export default class CreateTableUser1593112040135
             isNullable: true,
           },
           {
+            name: 'IsONG',
+            type: 'boolean',
+            default: false,
+          },
+          {
             name: 'PhoneNumber',
             type: 'varchar',
             isNullable: true,

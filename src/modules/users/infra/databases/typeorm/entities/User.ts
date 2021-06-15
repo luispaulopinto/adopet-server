@@ -49,6 +49,10 @@ class User {
   @Expose({ groups: ['profile', 'update'] })
   city: string;
 
+  @Column({ name: 'IsONG' })
+  @Expose()
+  isOng: boolean;
+
   @CreateDateColumn({ name: 'CreatedAt' })
   @Expose({ groups: ['create', 'profile'] })
   createdAt: Date;

@@ -11,6 +11,7 @@ interface IUserRequest {
   name: string;
   email: string;
   password: string;
+  isOng: boolean;
 }
 
 @injectable()
@@ -23,7 +24,12 @@ class CreateUserUseCase {
     private hashProvider: IHashProvider,
   ) {}
 
-  public async execute({ name, email, password }: IUserRequest): Promise<User> {
+  public async execute({
+    name,
+    email,
+    password,
+    isOng,
+  }: IUserRequest): Promise<User> {
     const userExists = await this.userRepository.findByEmail(email);
 
     if (userExists) throw new EmailAlreadyInUseError();
@@ -34,6 +40,7 @@ class CreateUserUseCase {
       name,
       email,
       password: hashPassword,
+      isOng,
     });
 
     return classToClass(user, { groups: ['create'] });

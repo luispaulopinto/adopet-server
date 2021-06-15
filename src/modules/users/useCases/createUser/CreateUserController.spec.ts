@@ -23,6 +23,7 @@ describe('CreateUser Controller', () => {
       name: 'Supertest',
       email: 'email@supertest.com',
       password: 'password',
+      isOng: false,
     });
 
     expect(response.status).toBe(201);
@@ -33,6 +34,7 @@ describe('CreateUser Controller', () => {
     expect(response.body).toHaveProperty('avatarURL');
     expect(response.body).toHaveProperty('id');
     expect(response.body).toHaveProperty('createdAt');
+    expect(response.body).toHaveProperty('isOng');
     expect(response.body).not.toHaveProperty('avatar');
     expect(response.body).not.toHaveProperty('phoneNumber');
     expect(response.body).not.toHaveProperty('password');
@@ -51,6 +53,7 @@ describe('CreateUser Controller', () => {
       name: 'Supertest',
       email: 'email@supertest.com',
       password: 'password',
+      isOng: false,
     });
     const { message } = response.body;
     expect(response.status).toBe(409);
@@ -61,6 +64,7 @@ describe('CreateUser Controller', () => {
     const response = await request(app).post('/users').send({
       name: 'name',
       password: 'password',
+      isOng: false,
     });
 
     const { message } = response.body;
@@ -73,6 +77,7 @@ describe('CreateUser Controller', () => {
       name: 'name',
       email: 'email',
       password: 'password',
+      isOng: false,
     });
 
     const { message } = response.body;
@@ -83,6 +88,7 @@ describe('CreateUser Controller', () => {
   it('should not be able to create a new user without name body field', async () => {
     const response = await request(app).post('/users').send({
       email: 'email@supertest.com',
+      isOng: false,
       password: 'password',
     });
 
@@ -95,10 +101,23 @@ describe('CreateUser Controller', () => {
     const response = await request(app).post('/users').send({
       name: 'name',
       email: 'email@supertest.com',
+      isOng: false,
     });
 
     const { message } = response.body;
     expect(response.status).toBe(400);
     expect(message).toEqual('"password" is required');
+  });
+
+  it('should not be able to create a new user without isOng body field', async () => {
+    const response = await request(app).post('/users').send({
+      name: 'name',
+      email: 'email@supertest.com',
+      password: 'password',
+    });
+
+    const { message } = response.body;
+    expect(response.status).toBe(400);
+    expect(message).toEqual('"isOng" is required');
   });
 });
