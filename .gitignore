@@ -1,0 +1,11 @@
+.vscode/
+coverage/
+node_modules/
+build/
+temp/
+tmp/*
+.env
+ormconfig.json
+!tmp/uploads/.gitkeep
+!tmp/image_test.jpg
+!tmp/test.txt
