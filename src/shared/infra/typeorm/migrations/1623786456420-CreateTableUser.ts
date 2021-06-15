@@ -53,6 +53,11 @@ export default class CreateTableUser1593112040135
             default: false,
           },
           {
+            name: 'IsONGVerified',
+            type: 'boolean',
+            default: false,
+          },
+          {
             name: 'PhoneNumber',
             type: 'varchar',
             isNullable: true,
