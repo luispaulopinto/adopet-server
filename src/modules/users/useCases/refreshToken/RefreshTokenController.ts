@@ -35,6 +35,7 @@ export default class RefreshTokenController {
       // maxAge: 60 * 1000, // convert from minute to milliseconds
       expires: refreshToken.expiresIn,
       httpOnly: true,
+      sameSite: 'lax',
       secure: false,
     });
 
@@ -42,6 +43,7 @@ export default class RefreshTokenController {
       // maxAge: 60 * 1000, // convert from minute to milliseconds
       expires: refreshToken.expiresIn,
       httpOnly: true,
+      sameSite: 'lax',
       secure: false,
     });
 
