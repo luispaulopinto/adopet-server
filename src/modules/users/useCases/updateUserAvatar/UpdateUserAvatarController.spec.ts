@@ -49,10 +49,7 @@ describe('UpdateUserAvatar Controller', () => {
 
     const response = await request(app)
       .patch('/users/avatar')
-      .attach(
-        'avatar',
-        `${uploadConfig.tmpFolder}/image_test.jpg`,
-      )
+      .attach('avatar', `${uploadConfig.tmpFolder}/test_files/image_test.jpg`)
       .set({
         Authorization: `Bearer ${token}`,
       });
@@ -88,7 +85,7 @@ describe('UpdateUserAvatar Controller', () => {
 
     const response = await request(app)
       .patch('/users/avatar')
-      .attach('avatar', `${uploadConfig.tmpFolder}/test.txt`)
+      .attach('avatar', `${uploadConfig.tmpFolder}/test_files/test.txt`)
       .set({
         Authorization: `Bearer ${token}`,
       });

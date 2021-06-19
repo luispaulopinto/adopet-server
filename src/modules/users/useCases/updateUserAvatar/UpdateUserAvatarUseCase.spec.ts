@@ -23,6 +23,7 @@ describe('UpdateAvatar UseCase', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     await updateUserAvatarUseCase.execute({
@@ -40,6 +41,7 @@ describe('UpdateAvatar UseCase', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     await updateUserAvatarUseCase.execute({
@@ -56,7 +58,7 @@ describe('UpdateAvatar UseCase', () => {
     expect(user.avatar).toBe('avatar2.jpg');
   });
 
-  it('should NOT be able to update avatar with an non existing user', async () => {
+  it('should NOT be able to update avatar with a existing user', async () => {
     await expect(
       updateUserAvatarUseCase.execute({
         userId: 'non-existing-user',

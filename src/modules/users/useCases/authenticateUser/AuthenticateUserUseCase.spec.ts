@@ -30,6 +30,7 @@ describe('AuthenticateUser UseCase', () => {
       name: 'Test Name',
       email: 'Test Email',
       password: 'Test Password',
+      isOng: false,
     };
 
     const userCreated = await createUserUseCase.execute(userData);
@@ -63,6 +64,7 @@ describe('AuthenticateUser UseCase', () => {
       name: 'Test Name',
       email: 'Test Email',
       password: 'Test Password',
+      isOng: false,
     };
 
     await createUserUseCase.execute(userData);

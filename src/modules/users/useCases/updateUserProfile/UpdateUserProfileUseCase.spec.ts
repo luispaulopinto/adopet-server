@@ -22,6 +22,7 @@ describe('UpdateUserProfile Use Case', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     const updatedUser = await updateUserProfileUseCase.execute({
@@ -43,6 +44,7 @@ describe('UpdateUserProfile Use Case', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     const updatedUser = await updateUserProfileUseCase.execute({
@@ -60,6 +62,7 @@ describe('UpdateUserProfile Use Case', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     const compareHash = jest.spyOn(fakeHashProvider, 'compareHash');
@@ -85,6 +88,7 @@ describe('UpdateUserProfile Use Case', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     await expect(
@@ -102,6 +106,7 @@ describe('UpdateUserProfile Use Case', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     const compareHash = jest.spyOn(fakeHashProvider, 'compareHash');
@@ -133,12 +138,14 @@ describe('UpdateUserProfile Use Case', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     const user = await inMemoryUserRepository.create({
       name: 'Teste 2',
       email: 'teste2@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     await expect(

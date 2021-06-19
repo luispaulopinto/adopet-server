@@ -13,7 +13,6 @@ import IJwtProvider, {
 
 class JwtProvider implements IJwtProvider {
   create(payload: string | object, options?: ISignOptions): IJwtCreateResponse {
-    // console.log('secret node env', authConfig);
     const { secret, expiresInToken: expiresIn } = authConfig.token;
     const token = sign(payload, secret, {
       ...options,

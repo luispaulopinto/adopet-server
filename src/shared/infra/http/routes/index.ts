@@ -5,6 +5,8 @@ import authenticationRouter from '@modules/users/infra/http/routes/authenticatio
 import passwordRouter from '@modules/users/infra/http/routes/password.routes';
 import profileRouter from '@modules/users/infra/http/routes/profile.routes';
 import refreshTokenRouter from '@modules/users/infra/http/routes/refreshToken.routes';
+import donationsRouter from '@modules/animalDonation/infra/http/routes/donations.routes';
+import userDonationsRouter from '@modules/animalDonation/infra/http/routes/userDonations.routes';
 
 const routes = Router();
 
@@ -13,5 +15,7 @@ routes.use('/authenticate', authenticationRouter);
 routes.use('/refresh-token', refreshTokenRouter);
 routes.use('/password', passwordRouter);
 routes.use('/profile', profileRouter);
+routes.use('/donations', donationsRouter);
+routes.use('/users/:userId/donations', userDonationsRouter);
 
 export default routes;

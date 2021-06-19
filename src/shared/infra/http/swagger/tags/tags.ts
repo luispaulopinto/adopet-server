@@ -4,6 +4,14 @@ const tags = [
     description: 'Authenticate Management',
   },
   {
+    name: 'Donations',
+    description: 'Animals Donation Management',
+  },
+  {
+    name: 'User Donations',
+    description: 'User Animals Donation',
+  },
+  {
     name: 'Password',
     description: 'Password Management',
   },

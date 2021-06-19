@@ -3,7 +3,7 @@ import {
   statusCode404,
   statusCode409,
   statusCode500,
-} from '../responses';
+} from '../../responses';
 
 const usersPath = {
   post: {
@@ -11,7 +11,7 @@ const usersPath = {
     summary: 'Create a new user',
     // description: '',
     requestBody: {
-      description: 'Required fields for creating an user.',
+      description: 'Required fields to create an user.',
       required: true,
       content: {
         'application/json': {

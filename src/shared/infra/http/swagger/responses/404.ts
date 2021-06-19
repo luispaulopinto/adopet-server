@@ -1,6 +1,6 @@
 const statusCode404 = {
   description:
-    'The user was not found. The response will contain an Errors JSON Object with the specific error.',
+    'The object was not found. The response will contain an Errors JSON Object with the specific error.',
   content: {
     'application/json': {
       schema: {

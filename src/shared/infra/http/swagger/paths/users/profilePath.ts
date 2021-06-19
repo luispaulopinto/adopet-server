@@ -3,7 +3,7 @@ import {
   statusCode404,
   statusCode409,
   statusCode500,
-} from '../responses';
+} from '../../responses';
 
 const profilePath = {
   get: {

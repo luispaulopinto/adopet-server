@@ -3,28 +3,32 @@ import {
   statusCode401,
   statusCode404,
   statusCode500,
-} from '../responses';
+} from '../../responses';
 
-const forgotPasswordPath = {
+const resetPasswordPath = {
   post: {
     tags: ['Password'],
-    summary: 'Sends a forgot password email to the user',
+    summary: 'Reset the user password to the new one specified',
     // description: '',
     requestBody: {
-      description: 'Required fields for send forgot password email.',
+      description: 'Required fields for reset the user password.',
       required: true,
       content: {
         'application/json': {
           schema: {
             type: 'object',
             properties: {
-              email: {
+              token: {
                 type: 'string',
-                format: 'email',
+              },
+              password: {
+                type: 'string',
+                format: 'password',
               },
             },
             example: {
-              email: 'new@user.com',
+              token: 'lmvsifnsu#ksfns3gdkngbsno3ionssjnjwngnsdns',
+              password: '123456',
             },
           },
         },
@@ -32,7 +36,7 @@ const forgotPasswordPath = {
     },
     responses: {
       '204': {
-        description: 'Forgot password email sent successfully.',
+        description: 'Password changed successfully.',
       },
       '400': statusCode400,
       '401': statusCode401,
@@ -42,4 +46,4 @@ const forgotPasswordPath = {
   },
 };
 
-export default forgotPasswordPath;
+export default resetPasswordPath;

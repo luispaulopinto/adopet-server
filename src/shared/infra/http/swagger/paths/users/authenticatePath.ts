@@ -3,7 +3,7 @@ import {
   statusCode401,
   statusCode404,
   statusCode500,
-} from '../responses';
+} from '../../responses';
 
 const usersPath = {
   post: {

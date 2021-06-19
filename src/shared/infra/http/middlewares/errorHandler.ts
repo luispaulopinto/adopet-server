@@ -1,5 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 
+import path from 'path';
+import fs from 'fs';
+import uploadConfig from '@config/upload';
+
 import AppError from '@shared/errors/AppError';
 
 import { isCelebrateError } from 'celebrate';
@@ -11,6 +15,22 @@ export default function errorHandler(
   response: Response,
   _: NextFunction,
 ): Response {
+  // CODE TO DELETE TEMP FILES IF OCCURS ANY ERRORS
+  try {
+    fs.readdir(uploadConfig.tmpFolder, (err, files) => {
+      if (err) throw err;
+      // eslint-disable-next-line no-restricted-syntax
+      for (const file of files) {
+        if (file !== 'test_files' && file !== 'uploads') {
+          fs.unlink(path.join(`${uploadConfig.tmpFolder}`, file), fileErr => {
+            if (fileErr) throw fileErr;
+          });
+        }
+      }
+    });
+    // eslint-disable-next-line no-empty
+  } catch {}
+
   if (isCelebrateError(error)) {
     const errorBody = error.details.get('body'); // 'details' is a Map()
     const errorCookies = error.details.get('cookies'); // 'details' is a Map()

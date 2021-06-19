@@ -22,6 +22,7 @@ describe('CreateUser UseCase', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     expect(user).toHaveProperty('id');
@@ -32,6 +33,7 @@ describe('CreateUser UseCase', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     await expect(
@@ -39,6 +41,7 @@ describe('CreateUser UseCase', () => {
         name: 'Teste',
         email: 'teste@teste.com.br',
         password: '123456',
+        isOng: false,
       }),
     ).rejects.toBeInstanceOf(EmailAlreadyInUseError);
   });

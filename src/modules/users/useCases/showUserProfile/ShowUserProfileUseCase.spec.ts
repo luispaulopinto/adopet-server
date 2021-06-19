@@ -16,6 +16,7 @@ describe('ShowUesrProfile UseCase', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     const user = await showUserProfileUseCase.execute({
@@ -27,7 +28,7 @@ describe('ShowUesrProfile UseCase', () => {
     expect(user.email).toBe('teste@teste.com.br');
   });
 
-  it('should NOT be able to show the profile with an non-existing user', async () => {
+  it('should NOT be able to show the profile with a non-existing user', async () => {
     expect(
       showUserProfileUseCase.execute({
         userId: 'non-exixting user',

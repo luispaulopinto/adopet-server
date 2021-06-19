@@ -35,6 +35,7 @@ describe('ResetPassword UseCase', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     const { token } = await inMemoryUserTokenRepository.create({
@@ -86,6 +87,7 @@ describe('ResetPassword UseCase', () => {
       name: 'Teste',
       email: 'teste@teste.com.br',
       password: '123456',
+      isOng: false,
     });
 
     // jest.spyOn(Date, 'now').mockImplementationOnce(() => {
