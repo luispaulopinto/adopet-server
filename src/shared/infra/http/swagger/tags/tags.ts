@@ -12,6 +12,10 @@ const tags = [
     description: 'User Animals Donation',
   },
   {
+    name: 'Feeds',
+    description: 'Animals Feeds',
+  },
+  {
     name: 'Password',
     description: 'Password Management',
   },

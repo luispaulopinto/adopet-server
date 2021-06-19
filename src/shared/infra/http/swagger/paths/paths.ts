@@ -7,6 +7,7 @@ import refreshTokenPath from './users/refreshTokenPath';
 import donationsPath from './donations/donationsPath';
 import userDonationsPath from './donations/userDonationsPath';
 import donationImagesPath from './donations/donationImagesPath';
+import feedsPath from './feeds/feedsPath';
 
 const paths = {
   '/authenticate': authenticatePath,
@@ -30,6 +31,9 @@ const paths = {
   },
   '/donations/{:donationId}/images/{:imageId}': {
     delete: donationImagesPath.deleteById,
+  },
+  '/feeds': {
+    get: feedsPath.get,
   },
 };
 

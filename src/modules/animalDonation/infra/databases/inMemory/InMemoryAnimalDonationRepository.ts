@@ -2,12 +2,20 @@ import { v4 as uuid } from 'uuid';
 
 import ICreateAnimalDonationDTO from '@modules/animalDonation/dtos/ICreateAnimalDonationDTO';
 
+import IFindAnimalDonationsDTO from '@modules/animalDonation/dtos/IFindAnimalDonationsDTO';
+import IFindAnimalDonationsRespDTO from '@modules/animalDonation/dtos/IFindAnimalDonationsRespDTO';
 import IAnimalDonationRepository from '../contracts/IAnimalDonationRepository';
 
 import AnimalDonation from '../typeorm/entities/AnimalDonation';
 
 class InMemoryAnimalDonationRepository implements IAnimalDonationRepository {
   private animalDonations: AnimalDonation[] = [];
+
+  public async find(
+    _data: IFindAnimalDonationsDTO,
+  ): Promise<IFindAnimalDonationsRespDTO<AnimalDonation[]>> {
+    return { data: this.animalDonations, total: this.animalDonations.length };
+  }
 
   public async findById(id: string): Promise<AnimalDonation | undefined> {
     const findAnimalDonation = this.animalDonations.find(
