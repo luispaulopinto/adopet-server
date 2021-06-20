@@ -4,7 +4,10 @@ import ICreateAnimalDonationDTO from '../../../dtos/ICreateAnimalDonationDTO';
 import AnimalDonation from '../typeorm/entities/AnimalDonation';
 
 export default interface IAnimalDonationRepository {
-  findById(id: string): Promise<AnimalDonation | undefined>;
+  findById(
+    id: string,
+    relations: string[],
+  ): Promise<AnimalDonation | undefined>;
   findByUserId(id: string): Promise<AnimalDonation[]>;
   find(
     data: IFindAnimalDonationsDTO,

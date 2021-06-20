@@ -34,7 +34,10 @@ class ShowAnimalDonationUseCase {
 
     if (!userExists) throw new UserNotFoundError();
 
-    const userAnimal = await this.animalDonationRepository.findById(donationId);
+    const userAnimal = await this.animalDonationRepository.findById(
+      donationId,
+      ['images', 'user'],
+    );
 
     if (!userAnimal) throw new AnimalDonationNotFoundError();
 

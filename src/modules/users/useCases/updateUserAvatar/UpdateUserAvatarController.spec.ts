@@ -48,7 +48,7 @@ describe('UpdateUserAvatar Controller', () => {
     const { token } = sessionResponse.body;
 
     const response = await request(app)
-      .patch('/users/avatar')
+      .patch('/users')
       .attach('avatar', `${uploadConfig.tmpFolder}/test_files/image_test.jpg`)
       .set({
         Authorization: `Bearer ${token}`,
@@ -84,7 +84,7 @@ describe('UpdateUserAvatar Controller', () => {
     const { token } = sessionResponse.body;
 
     const response = await request(app)
-      .patch('/users/avatar')
+      .patch('/users')
       .attach('avatar', `${uploadConfig.tmpFolder}/test_files/test.txt`)
       .set({
         Authorization: `Bearer ${token}`,
@@ -97,7 +97,7 @@ describe('UpdateUserAvatar Controller', () => {
   });
 
   it('should NOT be able to add an user avatar without the authenticate token', async () => {
-    const response = await request(app).patch('/users/avatar');
+    const response = await request(app).patch('/users');
 
     const { message } = response.body;
 
@@ -106,7 +106,7 @@ describe('UpdateUserAvatar Controller', () => {
   });
 
   it('should NOT be able to add an user avatar with an invalid authenticate token', async () => {
-    const response = await request(app).patch('/users/avatar').set({
+    const response = await request(app).patch('/users').set({
       Authorization: `Bearer TOKEN`,
     });
 

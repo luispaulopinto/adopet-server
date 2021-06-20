@@ -8,5 +8,3 @@ tmp/*
 ormconfig.json
 !tmp/test_files
 !tmp/uploads
-!tmp/image_test.jpg
-!tmp/test.txt

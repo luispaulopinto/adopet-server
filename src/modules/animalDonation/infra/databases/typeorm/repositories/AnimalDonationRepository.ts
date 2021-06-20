@@ -47,10 +47,13 @@ class AnimalDonationRepository implements IAnimalDonationRepository {
     return { data: results[0], total: results[1] };
   }
 
-  public async findById(id: string): Promise<AnimalDonation | undefined> {
+  public async findById(
+    id: string,
+    relations: string[] = ['images'],
+  ): Promise<AnimalDonation | undefined> {
     const animalDonation = await this.ormRepository.findOne({
       where: { id },
-      relations: ['images'],
+      relations,
     });
 
     return animalDonation;
