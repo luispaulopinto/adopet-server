@@ -24,6 +24,7 @@ class AnimalDonationRepository implements IAnimalDonationRepository {
     const donations = this.ormRepository
       .createQueryBuilder('d')
       .leftJoinAndSelect('d.images', 'i', 'd.id = i.animalDonationId')
+      .leftJoinAndSelect('d.user', 'u', 'd.userId = u.id')
       .orderBy('d.updatedAt', 'DESC')
       .take(limit)
       .skip((page - 1) * limit);
